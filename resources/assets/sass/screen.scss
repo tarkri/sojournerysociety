@@ -1,0 +1,32 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+@import "compass/reset";
+//Mixins
+@import "partials/mixins";
+//Grid
+@import "partials/grid";
+//Variables
+@import "partials/variables";
+//Common
+@import "partials/common";
+//Typography
+@import "partials/typography";
+//Base
+@import "partials/base";
+//Modules
+@import "partials/modules";
+//Navigation
+@import "partials/navigation";
+//Banner
+@import "partials/banner";
+//Pages
+@import "partials/pages";
+//Photography
+@import "partials/photography";
+//Footer
+@import "partials/footer";
+
+
+

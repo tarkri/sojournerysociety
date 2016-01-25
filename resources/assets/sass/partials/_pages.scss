@@ -1,0 +1,140 @@
+//Base Section
+section {
+  &.section {
+    @include section();
+    h1 {
+      color: #fff;
+      font-size: 2.25em;
+      font-family: $anago;
+      font-weight: 500;
+      &.underline {
+        border-bottom: 1px solid #fff;
+        padding-bottom: 15px;
+      }
+    }
+  }
+}
+
+//Bio
+.section.about {
+  padding-bottom:0;
+  .profile, .bio {
+    float:left;
+    min-height:625px;
+    background:#d0d0d0;
+  }
+  .profile {
+    width: 33.3%;
+    background-repeat: no-repeat;
+    background-position: top left;
+    -webkit-background-size: cover !important;
+    background-size: cover !important;
+    &.bethany {
+      background:url(../img/bio-bethany.png);
+    }
+  }
+  .bio {
+    width: 66.6%;
+  }
+}
+
+@media (max-width:775px) {
+  .section.about {
+    .profile {
+      width: 100%;
+      min-height: inherit;
+      img.spacer {
+        height: 400px !important;
+      }
+    }
+    .bio {
+      width: 100%;
+    }
+  }
+}
+
+//Homepage
+ul.photo-sections.homepage {
+  h1 {
+    font-family: $industry;
+    font-size: 2.375em;
+    color: #fff;
+    text-align: center;
+    font-weight: 300;
+    small {
+      font-size: .5em;
+      display: block;
+      margin-bottom:-35px;
+    }
+  }
+  .overlay-text {
+    position: absolute;
+    z-index: 1000;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    top:0;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+//Featured
+.section.featured {
+  min-height: inherit !important;
+  padding: 0 0 75px;
+}
+
+.logos {
+  display: flex;
+  flex-flow: wrap;
+  img {
+    width: 200px;
+    box-sizing: border-box;
+    padding: 20px;
+    flex: auto;
+  }
+}
+
+//Instagram
+.section.instagram {
+  background: $darkGreen;
+}
+
+//Parallax
+.section.parallax {
+  -webkit-background-size: cover !important;
+  background-size: cover !important;
+  background-position: bottom center !important;
+  background-attachment: fixed !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+  .container {
+    opacity: 0;
+    @include transition(.8s);
+    &.in-view {
+      opacity: 1;
+    }
+  }
+  h1 {
+    font-size: 2.67em;
+    font-style: italic;
+    font-family: $anago;
+    font-weight: 300;
+  }
+}
+
+@media (max-width:940px) {
+  .section.parallax {
+    background-attachment: scroll !important;
+    &.mobile-left {
+      background-position: bottom right !important;
+    }
+    &.mobile-right {
+      background-position: bottom left !important;
+    }
+  }
+}

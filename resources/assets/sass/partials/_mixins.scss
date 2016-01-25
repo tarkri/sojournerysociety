@@ -1,0 +1,32 @@
+@mixin container($width) {
+  width: 100%;
+  max-width: $width;
+  margin: 0 auto;
+  display: block;
+  padding:0 4.10%;
+  box-sizing: border-box;
+  position: relative;
+}
+
+@mixin section() {
+  min-height:768px;
+  margin: 0;
+  padding: 75px 0px;
+}
+
+//CSS3 MIXINS
+@mixin transition($time) {
+  -webkit-transition: all $time ease-in-out;
+  -moz-transition: all $time ease-in-out;
+  -ms-transition: all $time ease-in-out;
+  -o-transition: all $time ease-in-out;
+  transition: all $time ease-in-out;
+}
+
+@mixin scale($amount) {
+  -webkit-transform: scale($amount);
+  -moz-transform: scale($amount);
+  -ms-transform: scale($amount);
+  -o-transform: scale($amount);
+  transform: scale($amount);
+}

@@ -1,0 +1,1 @@
+$(document).ready(function(){$(".section.parallax .container").bind("inview",function(n,i,t,a){var o=$(this);i&&("top"==a||"bottom"==a||o.addClass("in-view"))})});
