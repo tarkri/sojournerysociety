@@ -1,0 +1,53 @@
+.team-block {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 15px;
+  -webkit-transition: all 1s ease-in;
+  -moz-transition: all 1s ease-in;
+  -ms-transition: all 1s ease-in;
+  -o-transition: all 1s ease-in;
+  transition: all 1s ease-in;
+  h2 {
+    color: #313131;
+    font-family: $playfair;
+    font-style: italic;
+    border-top:1px solid #ccc;
+    margin-top:15px;
+    padding: 15px;
+    small {
+      font-family: $anago;
+      font-style: normal;
+      color: #777777;
+      font-size: .85em;
+    }
+  }
+  &:hover {
+    img {
+      -webkit-filter: grayscale(0%); /* Chrome, Safari, Opera */
+      filter: grayscale(0%);
+    }
+  }
+  img {
+    -webkit-filter: grayscale(100%); /* Chrome, Safari, Opera */
+    filter: grayscale(100%);
+    -webkit-transition: all 1s ease-in;
+    -moz-transition: all 1s ease-in;
+    -ms-transition: all 1s ease-in;
+    -o-transition: all 1s ease-in;
+    transition: all 1s ease-in;
+  }
+  &.mini {
+    img {
+      -webkit-border-radius: 100%;
+      -moz-border-radius: 100%;
+      border-radius: 100%;
+      overflow: hidden;
+      max-width:150px;
+      margin: 0 auto;
+      display: block;
+      border:1px solid #ccc;
+      padding: 5px;
+    }
+  }
+}

@@ -2,5 +2,77 @@ nav {
   .navigation {
     position: absolute;
     padding-top:20px;
+    z-index: 9999;
+    -webkit-transition: all .4s ease-in-out;
+    -moz-transition: all .4s ease-in-out;
+    -ms-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+    width: 100%;
   }
+
+  &.home {
+    ul {
+      opacity: 0;
+      position: absolute;
+    }
+    &.fixed {
+      ul {
+        opacity: 1;
+        position: relative;
+        li {
+          display: inline-block;
+          padding-top: 10px;
+          text-align: center;
+        }
+        a {
+          text-decoration: none;
+          color: #333;
+          font-family: $anago;
+          padding: 10px 10px;
+        }
+      }
+      .navigation {
+        position: fixed;
+        background:rgba(255, 255, 255, .95);
+        padding: 20px;
+        z-index: 1000;
+        left: 0;
+        text-align: center;
+      }
+    }
+  }
+  &.page {
+    ul {
+      opacity: 1;
+      position: relative;
+      li {
+        display: inline-block;
+        padding-top: 10px;
+        text-align: center;
+        &.active {
+          a {
+            color: $green;
+            font-weight: bold;
+            display: block;
+          }
+        }
+      }
+      a {
+        text-decoration: none;
+        color: #333;
+        font-family: $anago;
+        padding: 10px 10px;
+      }
+    }
+    .navigation {
+      //position: fixed;
+      background:rgba(255, 255, 255, .95);
+      padding: 20px;
+      z-index: 1000;
+      left: 0;
+      text-align: center;
+    }
+  }
+
 }

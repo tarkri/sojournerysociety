@@ -16,7 +16,7 @@
     <script src="https://use.typekit.net/qbo4swx.js"></script>
     <script>try{Typekit.load({ async: true });}catch(e){}</script>
 </head>
-<body>
+<body class="{{ URL::current() !== URL::to('/') ? 'page' : null }}">
 <!--[if lt IE 8]>
 <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 <![endif]-->

@@ -1,5 +1,11 @@
 body {
   background: $green;
+  &.page {
+    background:#fff;
+    .wrapper {
+      padding-top:158px;
+    }
+  }
 }
 
 img.spacer {

@@ -2,6 +2,7 @@
  * In this file you should write your main styles. (or centralize your imports)
  * Import this file using the following HTML or equivalent:
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+@import url(https://fonts.googleapis.com/css?family=Playfair+Display:400,400italic,700,700italic);
 @import "compass/reset";
 //Mixins
 @import "partials/mixins";
@@ -23,6 +24,10 @@
 @import "partials/banner";
 //Pages
 @import "partials/pages";
+//Form
+@import "partials/form";
+//Callouts
+@import "partials/callout";
 //Photography
 @import "partials/photography";
 //Footer
