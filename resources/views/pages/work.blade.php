@@ -26,7 +26,7 @@
                         $listingImage = \App\ProjectImage::where('project_id', $project->id)->where('listing', 1)->first();
                     ?>
                     <li>
-                        <a href="{{ URL::to('work/'.$project->url) }}" style="background:url({{ URL::asset('uploads/projects/'.$listingImage->image) }})">
+                        <a href="{{ URL::to('work/project/'.$project->url) }}" style="background:url({{ URL::asset('uploads/projects/'.$listingImage->image) }})">
                             <img src="{{ URL::asset('library/img/bg-gradient.png') }}" width="100%" height="100%" alt="" class="gradient">
                             <div class="title">
                                 <h3>{{ $project->name }} <br><small>{{ $project->sub_line }}</small></h3>

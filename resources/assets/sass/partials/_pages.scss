@@ -18,10 +18,10 @@ section {
 
 //Bio
 .section.about {
-  background:#f2f2f2;
+  background:#fff;
   min-height: inherit !important;
   .team-block {
-    width: 33%;
+    width: 33% !important;
     display: inline-block;
   }
   h1 {
@@ -50,6 +50,14 @@ section {
   }
 }
 
+@media screen and (max-width:960px) {
+  .section.about {
+    .team-block {
+      width: 100% !important;
+    }
+  }
+}
+
 //Page Header
 .page-header {
   padding: 25px 0;
@@ -62,7 +70,6 @@ section {
     background-size: cover !important;
     background-position: top center !important;
     background-repeat: no-repeat !important;
-    //background-attachment: fixed !important;
     h1 {
       border: none;
     }

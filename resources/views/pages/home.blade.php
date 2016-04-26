@@ -11,7 +11,7 @@
                 <h1>You Have A <br>Story Worth Telling</h1>
             </div>
         </div>
-            <div class="video-block" style="opacity:0"></div>
+            <div class="video-block" style="opacity:1;"><video style="margin-bottom:-5px;" width="100%" height="100%" loop> <source src="{{ URL::asset('library/video/video.mp4') }}" type="video/mp4"> <source src="{{ URL::asset('library/video/video.ogg') }}" type="video/ogg">Your browser does not support the video tag. </video></div>
         <div class="progress-bar" style="background:#4d9d6f;height:10px;position: absolute;top:0;z-index:9999;display:block;left:0;"></div>
     </section>
     <section class="section intro">
@@ -23,30 +23,16 @@
     <section class="section photography">
         <div class="container">
             <ul class="photo-sections homepage">
+                @foreach($topProjects as $project)
                 <li>
-                    <a href="#" style="background:url({{ URL::asset('library/img/photography/couples/couples-home-listing.png') }})">
+                    <a href="{{ URL::to('work/'.strtolower(outputProjectType($project->type))) }}" style="background:url({{ getProjectListingImage(getProject($project->project_id)) }})">
                         <img src="{{ URL::asset('library/img/bg-gradient.png') }}" width="100%" height="100%" alt="" class="gradient">
                         <div class="title">
-                            <h3>Couples</h3>
+                            <h3>{{ outputProjectType($project->type) }}</h3>
                         </div>
                     </a>
                 </li>
-                <li>
-                    <a href="#" style="background:url({{ URL::asset('library/img/photography/families/families-home-listing.png') }})">
-                        <img src="{{ URL::asset('library/img/bg-gradient.png') }}" width="100%" height="100%" alt="" class="gradient">
-                        <div class="title">
-                            <h3>Families</h3>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" style="background:url({{ URL::asset('library/img/photography/entrepreneur/entrepreneur-home-listing.png') }})">
-                        <img src="{{ URL::asset('library/img/bg-gradient.png') }}" width="100%" height="100%" alt="" class="gradient">
-                        <div class="title">
-                            <h3>Entrepreneurs</h3>
-                        </div>
-                    </a>
-                </li>
+                @endforeach
             </ul>
         </div>
     </section>
@@ -82,6 +68,7 @@
                 <img src="https://media.licdn.com/mpr/mpr/shrinknp_200_200/p/5/005/075/25b/3382731.jpg" alt="">
                 <h2 class="text-center">Tarun Krishnan <br><small>Design & Development</small></h2>
             </div>
+            <div class="clearfix"></div>
             <link href='//www.weddingwire.com/assets/global/widget-4b21f9aafce4064bce2cba9215efe3e4.css' rel='stylesheet' type='text/css'>
             <div class='ww-bca-2016 ww-reset'>
                 <a title="BETHANY MICHAELA PHOTO Reviews" class="ww-bca" href="https://www.weddingwire.com/reviews/bethany-michaela-photo-brooklyn/aeebd605bf646d3f.html"><img alt="BETHANY MICHAELA PHOTO Reviews" src="//www.weddingwire.com/assets/badges/BCA-2016/BCA2016-logo_2x-080980b7feff975291d1be9f26eaddfa.png" />
@@ -89,6 +76,9 @@
                     &nbsp;
                     <img width="1" height="1" alt="" src="https://www.weddingwire.com/apis/v3/tracker?partner_key=163r5mm3&amp;target_id=aeebd605bf646d3f&amp;type=bca_2016" />
                 </div>
+                <br><br>
+                <img src="{{ URL::asset('library/img/Halls-of-Ivy-Graduation-Badge.jpg') }}" style="width:100%;max-width:150px;" alt="">
+
             </div>
         </div>
     </section>
@@ -114,18 +104,18 @@
     </section>
 
     <section class="section parallax" style="background:url({{ URL::asset('library/img/parallax-2.jpg') }})">
-        <div class="container">
-            <img src="{{ URL::asset('library/img/ico-mail.png') }}" style="width:100px" alt="">
-            <div class="clearfix"></div>
-            <br>
-            <div class="clearfix"></div>
-            <h1>
-                Making people feel worthy and loved in front <br>
-                of my camera brings me the ultimate joy
-            </h1>
-            <div class="callout contact-form" style="max-width:640px;margin-top:50px;">
-                <h1>Contact Us</h1>
-                <div class="form-group">
+         <h1>Contact Us</h1>
+                <div class="container">
+                    <img src="{{ URL::asset('library/img/ico-mail.png') }}" style="width:100px" alt="">
+                    <div class="clearfix"></div>
+                    <br>
+                    <div class="clearfix"></div>
+                    <h1>
+                        Making people feel worthy and loved in front <br>
+                        of my camera brings me the ultimate joy
+                    </h1>
+                    <div class="callout contact-form" style="max-width:640px;margin-top:50px;">
+                    <div class="form-group">
                     <label for="">Name</label>
                     <input type="text">
                 </div>
@@ -137,6 +127,9 @@
                     <label for="">Request/Comment</label>
                     <textarea name="message" id="message" cols="30" rows="10"></textarea>
                 </div>
+                <div class="form-group">
+                    <input type="submit" class="Submit Form">
+                </div>
             </div>
         </div>
     </section>
@@ -147,44 +140,5 @@
 @stop
 
 @section('script')
-    <script>
-        setTimeout(function(){
-            $('.start-block').fadeOut(1000);
-        }, 2000);
-        setTimeout(function(){
-            var video = '<div class="video-frame" style="width:100%;height:100%;margin:0 auto;display:block;"> <div class="video-wrapper" style="height:0px;padding-bottom:56.24%;"> <img src="{{ URL::asset('library/img/video-gradient.png') }}" width="100%" style="position:absolute;top:0;" alt=""> <video width="100%" height="100%" autoplay loop> <source src="{{ URL::asset('library/video/video.mp4') }}" type="video/mp4"> <source src="{{ URL::asset('library/video/video.ogg') }}" type="video/ogg">Your browser does not support the video tag. </video> </div> </div>';
-            $('.banner.homepage .video-block').html(video);
-            setTimeout(function(){
-                $('.banner.homepage .video-block').animate({
-                    'opacity': 1
-                }, 200);
-                $('.banner.homepage').css('height', 'inherit');
-                setTimeout(function(){
-                    $('.start-block h1').text('Let\'s Tell It Together');
-                    $('.start-block').fadeIn(1000);
-                    setTimeout(function(){
-                        $('.start-block').fadeOut(1000);
-                    }, 5000);
-                }, 5000);
-            }, 100);
-        }, 3000);
-        $(document).ready(function(){
-           setTimeout(function(){
-               var currentPosition = $(window).scrollTop();
-               var offset = parseInt($('section.banner').css('height')) -10;
-               if(currentPosition == 0) {
-                   $('body, html').animate({
-                      scrollTop: offset
-                   }, 2000);
-               }
-               $('.progress-bar').fadeOut();
-           }, 40000);
-            $('.progress-bar').animate({'width': '100%'}, 40000);
-           setTimeout(function() {
-               if($(window).width <= 1024) {
-                   $('video').play();
-               }
-           }, 5000);
-        });
-    </script>
+    <script src="{{ URL::asset('library/js/home-min.js') }}"></script>
 @stop

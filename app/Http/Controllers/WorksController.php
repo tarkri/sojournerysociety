@@ -39,11 +39,22 @@ class WorksController extends Controller
         $this->projectImage = $projectImage;
     }
 
-    public function index()
+    public function index($filter = null)
     {
         $projectLists = $this->project->lists('id');
-        $types = $this->projectType->wherein('project_id', $projectLists)->groupby('type')->orderby('type')->get();
-
+        switch($filter) {
+            case 'couples':
+                $types = $this->projectType->wherein('project_id', $projectLists)->where('type', 1)->groupby('type')->orderby('type')->get();
+                break;
+            case 'families':
+                $types = $this->projectType->wherein('project_id', $projectLists)->where('type', 2)->groupby('type')->orderby('type')->get();
+                break;
+            case 'entrepreneurs':
+                $types = $this->projectType->wherein('project_id', $projectLists)->where('type', 3)->groupby('type')->orderby('type')->get();
+                break;
+            default:
+                $types = $this->projectType->wherein('project_id', $projectLists)->groupby('type')->orderby('type')->get();
+        }
         return view('pages.work', compact('types'));
     }
 

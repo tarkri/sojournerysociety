@@ -15,9 +15,46 @@ function navIsCurrent($url, $class = null)
 
 }
 
-function getProjectBannerImage($project) {
+function navContains($url, $class = null) {
+    if(strpos(URL::current(), $url)) {
+        if(!$class) {
+            return true;
+        }
+        return $class;
+    }
+    return false;
+}
+
+function getProject($id) {
+    if(\App\Project::find($id)) {
+        $project = \App\Project::find($id);
+        return $project;
+    }
+    return false;
+}
+
+function projectHasListingImage($project) {
+    return App\ProjectImage::where('project_id', $project->id)->where('listing', 1)->first() ? true : false;
+}
+
+function getProjectListingImage($project) {
+    if(projectHasListingImage($project)) {
+        return URL::asset('uploads/projects/'.\App\ProjectImage::where('project_id', $project->id)->where('listing', 1)->first()->image);
+    }
+    return false;
+}
+
+function getProjectBannerImage($project, $field = null) {
     if(projectHasBannerImage($project)) {
-        return URL::asset('uploads/projects/'.\App\ProjectImage::where('project_id', $project->id)->where('banner', 1)->first()->image);
+        if($field) {
+            $record = \App\ProjectImage::where('project_id', $project->id)->where('banner', 1)->first();
+            if($record[$field]) {
+                return $record[$field];
+            }
+            return false;
+        }
+        $image = URL::asset('uploads/projects/'.\App\ProjectImage::where('project_id', $project->id)->where('banner', 1)->first()->image);
+        return $image;
     }
     return false;
 }

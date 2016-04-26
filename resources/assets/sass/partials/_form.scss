@@ -23,4 +23,16 @@
     color: #222;
     font-family: $anago;
   }
+  input[type="submit"] {
+    background: $green;
+    border:none;
+    color: #fff;
+    font-family: $playfair;
+    padding: 15px;
+    font-style: italic;
+    @include transition(.3s);
+    &:hover {
+      background: darken($green, 10%);
+    }
+  }
 }

@@ -8,6 +8,11 @@
   -ms-transition: all 1s ease-in;
   -o-transition: all 1s ease-in;
   transition: all 1s ease-in;
+  padding: 20px;
+  &:nth-child(2), &:nth-child(3) {
+    width:47%;
+    float: left;
+  }
   h2 {
     color: #313131;
     font-family: $playfair;
@@ -48,6 +53,35 @@
       display: block;
       border:1px solid #ccc;
       padding: 5px;
+    }
+  }
+  hr {
+    background: #ccc;
+    height:1px;
+    border:0;
+    outline:0;
+    margin:25px 0;
+    padding:0 0;
+  }
+  p.bio {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 20px;
+    font-size: 14px;
+    line-height: 1.5;
+    font-family: $anago;
+    border:1px solid #f2f2f2;
+    display: block;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (max-width:640px) {
+  .team-block {
+    &:nth-child(2), &:nth-child(3) {
+      width: 100%;
+
     }
   }
 }
